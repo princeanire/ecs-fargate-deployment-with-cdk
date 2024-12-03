@@ -182,6 +182,9 @@ export class MicroservicesCdkStack extends cdk.Stack {
               memoryLimitMiB: fargateServiceConfig.MEMORY_LIMIT,
               certificate: sharedPublicCertificate,
               taskImageOptions: {
+                environment: {
+                  "SAMPLE_ENVIRONMENT_VARIABLE": "SAMPLE_ENVIRONMENT_VALUE",
+                },
                 image: ecs.ContainerImage.fromEcrRepository(
                   ecr.Repository.fromRepositoryArn(
                     this,
