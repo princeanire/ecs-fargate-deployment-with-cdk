@@ -72,5 +72,4 @@ delete resource of type ""AWS::ECS::Cluster""
 Replace ALL words that is emsMicroservicesSharedApplicationLoadBalancerPublicListenerECSGroup566CDD2A to <NamePrefix><ServiceName>ECSTargetGroup
 ![alt text](image-6.png)
 
-
-## Support me
+Once completed, you append the resources onto the existing cloudformation template for provisioning
