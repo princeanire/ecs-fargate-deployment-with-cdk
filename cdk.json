@@ -43,7 +43,7 @@
     "AWS_REGION": "",
     "AWS_ACCOUNT_ID": "",
     "DB_IDENTIFIER": "",
-    "DB_ENGINE": "",
+    "DB_ENGINE": "postgres",
     "DB_INSTANCE_TYPE": "m7g.xlarge",
     "MULTI_AZ_DEPLOYMENT": false,
     "AVAILABILITY_ZONES": ["ap-southeast-1a", "ap-southeast-1b"],
