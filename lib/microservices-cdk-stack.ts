@@ -36,7 +36,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
 
     /* const sharedDatabase = new rds.DatabaseInstance(
       this,
-      "OMMicroservicesSharedDatabase",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedDatabase`,
       {
         engine: rds.DatabaseInstanceEngine.postgres({
           version: rds.PostgresEngineVersion.VER_16_4,
@@ -85,7 +85,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
 
     /*  const SharedWebApplicationFirewall = new WafwebaclToAlb(
       this,
-      "OMMicroservicesSharedWebApplicationFirewall",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedWebApplicationFirewall`,
       {
         existingLoadBalancerObj: sharedLoadBalancer
       }
@@ -93,7 +93,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
 
     /* const sharedRabbitMQMessageBrokerSecret = new secretsmanager.Secret(
       this,
-      "OMMicroservicesSharedRabbitMQMessageBrokerSecret",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedRabbitMQMessageBrokerSecret`,
       {
         generateSecretString: {
           secretStringTemplate: JSON.stringify({ username: "administrator" }),
@@ -105,7 +105,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
  */
     /* const sharedRabbitMQMessageBroker = new RabbitMqBrokerInstance(
       this,
-      "OMMicroservicesSharedRabbitMQMessageBroker",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedRabbitMQMessageBroker`,
       {
         publiclyAccessible: false,
         instanceType: this.node.tryGetContext("RABBITMQ_INSTANCE_TYPE"),
@@ -128,7 +128,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
  */
     /* const sharedECRContainerImageRepository = new ecr.Repository(
       this,
-      "OMMicroservicesSharedECRContainerImageRepository",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedECRContainerImageRepository`,
       {
         imageScanOnPush: true,
         encryption: ecr.RepositoryEncryption.AES_256,
@@ -151,7 +151,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
 
     const sharedSESEmailIdentity = new ses.EmailIdentity(
       this,
-      "OMMicroservicesSharedSESEmailIdentity",
+      `{this.node.tryGetContext("NAME_PREFIX")}MicroservicesSharedSESEmailIdentity`,
       {
         identity: noReplyRRHIAppsPHEmailDomainIdentity,
       }
