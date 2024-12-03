@@ -1,9 +1,7 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/om-microservices-cdk.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/microservices-cdk.ts",
   "watch": {
-    "include": [
-      "**"
-    ],
+    "include": ["**"],
     "exclude": [
       "README.md",
       "cdk*.json",
@@ -17,12 +15,46 @@
     ]
   },
   "context": {
+    "FARGATE_SERVICES": [
+      {
+        "SERVICE_NAME": "om-announcements-microservice",
+        "CPU": 512,
+        "MEMORY_LIMIT": 1024,
+        "CONTAINER_PORT": 8084,
+        "IMAGE_TAG": "projectom.announcements.microservice.v1",
+        "DESIRED_FARGATE_TASK_COUNT": 1,
+        "MINIMUM_FARGATE_TASK_COUNT": 1,
+        "MAXIMUM_FARGATE_TASK_COUNT": 3,
+        "TARGET_CPU_UTILIZATION_PERCENT": 50,
+        "REQUEST_PRIORITY": 35,
+        "PATH_PATTERNS": ["/api/Announcements/*"],
+        "HEALTH_CHECK_HTTP_CODES": "200",
+        "HEALTH_CHECK_PATH": "/swagger/index.html"
+      }
+    ],
+    "DELETION_PROTECTION": false,
+    "NAME_PREFIX": "eCommerce",
+    "ECR_REPOSITORY_ARN": "arn:aws:ecr:ap-southeast-1:935760478916:repository/ecommerce/ems/api",
+    "VPC_IDENTIFIER": "vpc-0978ceb901ca41869",
+    "RABBITMQ_BROKER_NAME": "PRDMQBrkr",
+    "AWS_REGION": "ap-southeast-1",
+    "AWS_ACCOUNT_ID": "935760478916",
+    "DB_IDENTIFIER": "prd-rrhipgdb",
+    "DB_ENGINE": "postgres",
+    "DB_INSTANCE_TYPE": "m7g.xlarge",
+    "MULTI_AZ_DEPLOYMENT": false,
+    "AVAILABILITY_ZONES": ["ap-southeast-1a", "ap-southeast-1b"],
+    "DATA_SUBNETS": ["subnet-0b02a30f58d04c754", "subnet-024acfd9243d94bb2"],
+    "APP_SUBNETS": ["subnet-0b57aad68d5b894fc", "subnet-0aafbe9c80d845f31"],
+    "PUBLIC_SUBNETS": ["subnet-033d8ef2c83985ffd", "subnet-0c7676d105403f6f1"],
+    "CERTIFICATE_DOMAIN_NAME": "*.rrhiapps.ph",
+    "RABBITMQ_INSTANCE_TYPE": "t3.micro",
+    "S3_BUCKET_NAME": "hr-portal",
+    "EMAIL_DOMAIN_NAME": "no-reply.rrhiapps.ph",
+    "DB_ADMIN_USERNAME": "prd_master_usr",
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
-    "@aws-cdk/core:target-partitions": [
-      "aws",
-      "aws-cn"
-    ],
+    "@aws-cdk/core:target-partitions": ["aws", "aws-cn"],
     "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
     "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
     "@aws-cdk/aws-ecs:arnFormatIncludesClusterName": true,
