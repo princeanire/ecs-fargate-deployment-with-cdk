@@ -10,6 +10,9 @@ Check out the [AWS Cloud Development Kit Documentation](https://docs.aws.amazon.
 ## Deployment
 When you're ready to deploy your awesome app, here are some important things to do before deploying your on ECS using this CDK script
 
+You can define environment variables through the `environment` property under `taskImageOptions` object for  the specific ECS Fargate microservice on `lib/microservices-cdk-stack.ts`
+![alt text](image-7.png)
+
 Update `cdk.json` specifically the following key-value pairs contained in `context`:
 
 * `BU_TAG_VALUE`| value of bu tag
