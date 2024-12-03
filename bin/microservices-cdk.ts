@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { OmMicroservicesCdkStack } from "../lib/om-microservices-cdk-stack";
+import { MicroservicesCdkStack } from "../lib/microservices-cdk-stack";
 
 const app = new cdk.App();
 
@@ -10,8 +10,9 @@ const env = {
   account: app.node.tryGetContext("AWS_ACCOUNT_ID"),
 };
 
-new OmMicroservicesCdkStack(app, "OmMicroservicesCdkStack", {
+new MicroservicesCdkStack(app, "MicroservicesCdkStack", {
   env: env,
   analyticsReporting: false,
-  synthesizer: new cdk.BootstraplessSynthesizer()
+  synthesizer: new cdk.BootstraplessSynthesizer(),
+  terminationProtection: app.node.tryGetContext("DELETION_PROTECTION"),
 });
