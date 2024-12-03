@@ -15,6 +15,9 @@
     ]
   },
   "context": {
+    "BU_TAG_VALUE": "RSC/RAC/SSD",
+    "PROJECT_TAG_VALUE": "PROJECT_TAG_VALUE",
+    "PRODUCT_TAG_VALUE": "",
     "FARGATE_SERVICES": [
       {
         "SERVICE_NAME": "om-announcements-microservice",

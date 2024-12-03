@@ -33,6 +33,9 @@ export class MicroservicesCdkStack extends cdk.Stack {
         publicSubnetIds: this.node.tryGetContext("PUBLIC_SUBNETS"),
       }
     );
+    cdk.Tags.of(this).add("bu", this.node.tryGetContext("BU_TAG_VALUE"));
+    cdk.Tags.of(this).add("project", this.node.tryGetContext("PROJECT_TAG_VALUE"));
+    cdk.Tags.of(this).add("product", this.node.tryGetContext("PRODUCT_TAG_VALUE"));
 
     /* const sharedDatabase = new rds.DatabaseInstance(
       this,
