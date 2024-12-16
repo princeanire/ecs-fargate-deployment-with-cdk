@@ -105,7 +105,8 @@ delete all resources (2 resources) of type "AWS::ElasticLoadBalancingV2::Listene
 delete resource of type ""AWS::ECS::Cluster""
 ![alt text](image-5.png)
 
-Replace ALL words that is emsMicroservicesSharedApplicationLoadBalancerPublicListenerECSGroup566CDD2A to <NamePrefix><ServiceName>ECSTargetGroup
+Replace ALL words that is emsMicroservicesSharedApplicationLoadBalancerPublicListenerECSGroup566CDD2A to 
+<NamePrefix><ServiceName>ECSTargetGroup
 ![alt text](image-6.png)
 
 Once completed, you append the resources onto the existing cloudformation template for provisioning
