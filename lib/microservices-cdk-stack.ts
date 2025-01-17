@@ -172,6 +172,7 @@ export class MicroservicesCdkStack extends cdk.Stack {
             `${fargateServiceConfig.SERVICE_NAME}`,
             {
               redirectHTTP: true,
+              enableECSManagedTags: true,
               propagateTags: ecs.PropagatedTagSource.TASK_DEFINITION,
               protocol: elbv2.ApplicationProtocol.HTTPS,
               loadBalancer: sharedLoadBalancer,
