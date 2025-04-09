@@ -23,7 +23,7 @@
     "@aws-solutions-constructs/aws-fargate-s3": "^2.74.0",
     "@aws-solutions-constructs/aws-wafwebacl-alb": "^2.74.0",
     "@cdklabs/cdk-amazonmq": "^0.1.0",
-    "aws-cdk-lib": "2.166.0",
+    "aws-cdk-lib": "2.186.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
   }
